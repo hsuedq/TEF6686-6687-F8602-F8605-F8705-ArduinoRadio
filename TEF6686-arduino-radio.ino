@@ -2,6 +2,7 @@
   By Eustake(marsel90)
   With this sketch it is recommended to use together with TEF-GTK v1.1.1 https://github.com/marsel90-1/TEF-GTK_v1.1.1
   Add:
+  Fixed bug with EQ and iMS to change DX1, DX2, DX3, DX4
   Default tuner front-end AGC is -6db.
   DX1 - set AGC 0dB (fine-tuning of the weak signal handling in high signal conditions)
   DX2 - set AGC -6db (default)
