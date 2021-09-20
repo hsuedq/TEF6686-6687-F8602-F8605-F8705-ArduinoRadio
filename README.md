@@ -1,8 +1,6 @@
 # NXP-TEF6686 Arduino Radio
 
-Arduino sketch for NXP-TEF6686 - AM & FM tuner and TEF-GTK user interface.
-
-Tuner TDQ-230V module with chip TEF6686HN/F8602 - AM/FM with RDS.
+Arduino sketch for Tuner TDQ-230V module with chip NXP-TEF6686HN/F8602 - AM/FM with RDS and TEF-GTK user interface.
 
 His version was the base - VoXiTPro https://github.com/voxit1512/Tef6686
 
