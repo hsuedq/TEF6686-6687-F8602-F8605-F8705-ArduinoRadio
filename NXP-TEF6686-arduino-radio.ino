@@ -388,7 +388,7 @@ static const uint8_t INIT_SET1[] PROGMEM =
   0x09, 0x20, 0x35, 0x01, 0x00, 0x01, 0x01, 0x2C, 0x00, 0xC8,                                                  // FM 53 Set_Highcut_Noise          (1, 1, 300, 200)        
   0x09, 0x20, 0x36, 0x01, 0x00, 0x01, 0x01, 0x2C, 0x00, 0xC8,                                                  // FM 54 Set_HighCut_Mph            (1, 1, 300, 200)        
   0x07, 0x20, 0x37, 0x01, 0x00, 0x01, 0x09, 0x60,                                                              // FM 55 Set_HighCut_Max            (1, 1, 2400)       
-  0x07, 0x20, 0x38, 0x01, 0x00, 0x01, 0x27, 0x10,                                                              // FM 56 Set_Highcut_Min            (1, 1, 10000)           
+  0x07, 0x20, 0x38, 0x01, 0x00, 0x01, 0x2E, 0xE0,                                                              // FM 56 Set_Highcut_Min            (1, 1, 12000)          
   0x07, 0x20, 0x39, 0x01, 0x00, 0x01, 0x00, 0x78,                                                              // FM 57 Set_Lowcut_Max             (1, 1, 120)             
   0x07, 0x20, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x14,                                                              // FM 58 Set_Lowcut_Min             (1, 1, 20)                               
   0x0B, 0x20, 0x3C, 0x01, 0x00, 0xC8, 0x07, 0xD0, 0x00, 0x14, 0x00, 0x50,                                      // FM 60 Set_Stereo_Time            (1, 200, 2000, 20, 80) 
@@ -405,7 +405,7 @@ static const uint8_t INIT_SET1[] PROGMEM =
   0x09, 0x20, 0x4A, 0x01, 0x00, 0x01, 0x00, 0x50, 0x00, 0xA0,                                                  // FM 74 Set_StHiBlend_Mph          (1, 1, 80, 160)           
   0x07, 0x20, 0x4B, 0x01, 0x00, 0x01, 0x0A, 0x8C,                                                              // FM 75 Set_StHiBlend_Max          (1, 1, 2700)                 
   0x07, 0x20, 0x4C, 0x01, 0x00, 0x01, 0x3A, 0x98,                                                              // FM 76 Set_StHiBlend_Min          (1, 1, 15000)                
-  0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                          // FM 86 Set_Bandwidth_Options      (1, 900)
+  0x05, 0x20, 0x56, 0x01, 0x05, 0x32,                                                                          // FM 86 Set_Bandwidth_Options      (1, 1330)
   0x07, 0x20, 0x5A, 0x01, 0x00, 0x64, 0x00, 0x1E,                                                              // FM_Set_StBandBlend_Time          (1, 100, 30)
   0x0B, 0x20, 0x5B, 0x01, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC,                                      // FM_Set_StBandBlend_Gain          (1, 1500, 1500, 1500, 1500)
   /*AM_add_settings by eustake*/                                                          
@@ -597,8 +597,8 @@ static const uint8_t INIT_SET4[] PROGMEM =
   0x00
 };
 
-const uint8_t AMFilterMap[32] PROGMEM = { 30, 30, 30, 30, 40, 40, 40, 40, 60, 60, 60, 60, 80, 80, 80, 80 };
-const uint16_t FMFilterMap[32] PROGMEM = { 560, 640, 720, 840, 970, 1140, 1330, 1510, 1680, 1840, 2000, 2170, 2360, 2540, 2870, 3110, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 640, 640, 840, 970, 970, 560 };
+const uint8_t AMFilterMap[] PROGMEM = { 30, 30, 30, 30, 40, 40, 40, 40, 60, 60, 60, 60, 80, 80, 80, 80 };
+const uint16_t FMFilterMap[] PROGMEM = { 560, 640, 720, 840, 970, 1140, 1330, 1510, 1680, 1840, 2000, 2170, 2360, 2540, 2870, 3110 };
 
 
 void Write(uint8_t *buf, uint8_t len)
