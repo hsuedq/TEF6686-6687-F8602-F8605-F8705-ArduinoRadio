@@ -368,14 +368,14 @@ static const uint8_t DSP_INIT[] PROGMEM =
   0x05, 0x40, 0x05, 0x01, 0x00, 0x01,                               // Command APPL_Activate will bring the device into ‘active state’ = radio standby
   0x02, INIT_FLAG_TIMER, 100,                                       // Wait 100 ms
   0x05, 0x20, 0x14, 0x01, 0x00, 0x01,                                                                          // FM 20 Set_MphSuppression         (1, 1)
-  0x05, 0x20, 0x16, 0x01, 0x00, 0x01,                                                                          // FM 22 Set_ChannelEqualizer       (1, 1) 
+  0x05, 0x20, 0x16, 0x01, 0x00, 0x01,                                                                          // FM 22 Set_ChannelEqualizer       (1, 1)
 };
 
-static const uint8_t INIT_SET1[] PROGMEM =
+ static const uint8_t INIT_SET1[] PROGMEM =
 {
-  /*FM_add_and_improved_settings by eustake*/ 
-  0x11, 0x20, 0x17, 0x01, 0x00, 0x01, 0x03, 0xE8, 0x00, 0x00, 0x03, 0x84, 0x00, 0x01, 0x00, 0x8C, 0x0A, 0x28,  // FM 23 Set_NoiseBlanker           (1, 1, 1000, 0, 900, 1, 140, 2600)                                                                    
-  0x09, 0x20, 0x18, 0x01, 0x00, 0xB4, 0x00, 0xB4, 0x00, 0xFA,                                                  // FM 24 Set_NoiseBlanker_Options   (1, 180, 180, 250)                 
+  /*TEF6686_add_and_improved_settings by eustake*/
+  0x07, 0x20, 0x17, 0x01, 0x00, 0x01, 0x03, 0xE8,                                                              // FM 23 Set_NoiseBlanker           (1, 1, 1000)                                                                    
+  0x09, 0x20, 0x18, 0x01, 0x00, 0xD2, 0x00, 0xD2, 0x00, 0xFA,                                                  // FM 24 Set_NoiseBlanker_Options   (1, 210, 210, 250)                
   0x0B, 0x20, 0x28, 0x01, 0x00, 0x78, 0x01, 0xF4, 0x00, 0x0A, 0x00, 0x14,                                      // FM 40 Set_Softmute_Time          (1, 120, 500, 10, 20)
   0x0B, 0x20, 0x29, 0x01, 0x00, 0x01, 0x00, 0xD2, 0x00, 0x78, 0x01, 0x04,                                      // FM 41 Set_Softmute_ Mod          (1, 1, 210, 120, 260)    
   0x09, 0x20, 0x2A, 0x01, 0x00, 0x01, 0x00, 0x96, 0x00, 0xDC,                                                  // FM 42 Set_Softmute_Level         (1, 1, 150, 220)          
@@ -388,7 +388,7 @@ static const uint8_t INIT_SET1[] PROGMEM =
   0x09, 0x20, 0x35, 0x01, 0x00, 0x01, 0x01, 0x2C, 0x00, 0xC8,                                                  // FM 53 Set_Highcut_Noise          (1, 1, 300, 200)        
   0x09, 0x20, 0x36, 0x01, 0x00, 0x01, 0x01, 0x2C, 0x00, 0xC8,                                                  // FM 54 Set_HighCut_Mph            (1, 1, 300, 200)        
   0x07, 0x20, 0x37, 0x01, 0x00, 0x01, 0x09, 0x60,                                                              // FM 55 Set_HighCut_Max            (1, 1, 2400)       
-  0x07, 0x20, 0x38, 0x01, 0x00, 0x01, 0x2E, 0xE0,                                                              // FM 56 Set_Highcut_Min            (1, 1, 12000)          
+  0x07, 0x20, 0x38, 0x01, 0x00, 0x01, 0x3A, 0x98,                                                              // FM 56 Set_Highcut_Min            (1, 1, 15000)          
   0x07, 0x20, 0x39, 0x01, 0x00, 0x01, 0x00, 0x78,                                                              // FM 57 Set_Lowcut_Max             (1, 1, 120)             
   0x07, 0x20, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x14,                                                              // FM 58 Set_Lowcut_Min             (1, 1, 20)                               
   0x0B, 0x20, 0x3C, 0x01, 0x00, 0xC8, 0x07, 0xD0, 0x00, 0x14, 0x00, 0x50,                                      // FM 60 Set_Stereo_Time            (1, 200, 2000, 20, 80) 
@@ -407,8 +407,7 @@ static const uint8_t INIT_SET1[] PROGMEM =
   0x07, 0x20, 0x4C, 0x01, 0x00, 0x01, 0x3A, 0x98,                                                              // FM 76 Set_StHiBlend_Min          (1, 1, 15000)                
   0x05, 0x20, 0x56, 0x01, 0x05, 0x32,                                                                          // FM 86 Set_Bandwidth_Options      (1, 1330)
   0x07, 0x20, 0x5A, 0x01, 0x00, 0x64, 0x00, 0x1E,                                                              // FM_Set_StBandBlend_Time          (1, 100, 30)
-  0x0B, 0x20, 0x5B, 0x01, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC,                                      // FM_Set_StBandBlend_Gain          (1, 1500, 1500, 1500, 1500)
-  /*AM_add_settings by eustake*/                                                          
+  0x0B, 0x20, 0x5B, 0x01, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC, 0x05, 0xDC,                                      // FM_Set_StBandBlend_Gain          (1, 1500, 1500, 1500, 1500)                                                        
   0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet              (1, 1, 2, 1200, 3)
   0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker              (1, 1, 1200)       
   0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio        (1, 1, 1200)
@@ -422,7 +421,6 @@ static const uint8_t INIT_SET1[] PROGMEM =
   0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min               (1, 1, 3000)
   0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max                (1, 1, 300)
   0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min                (1, 1, 30)  
-  /*Audio*/
   0x07, 0x30, 0x0D, 0x01, 0x00, 0x11, 0x00, 0xF0,                                                              // AUDIO_Set_Output_Source
   0x00
 };
@@ -463,8 +461,7 @@ static const uint8_t INIT_SET2[] PROGMEM =
   0x07, 0x20, 0x4C, 0x01, 0x00, 0x01, 0x1B, 0x58,                                                              // FM 76 Set_StHiBlend_Min          (1, 1, 7000)                  
   0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                          // FM 86 Set_Bandwidth_Options      (1, 900)
   0x07, 0x20, 0x5A, 0x01, 0x00, 0x64, 0x00, 0x1E,                                                              // FM_Set_StBandBlend_Time          (1, 100, 30)
-  0x0B, 0x20, 0x5B, 0x01, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8,                                      // FM_Set_StBandBlend_Gain          (1, 1000, 1000, 1000, 1000)
-  /*AM_add_settings by eustake*/                                                         
+  0x0B, 0x20, 0x5B, 0x01, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8,                                      // FM_Set_StBandBlend_Gain          (1, 1000, 1000, 1000, 1000)                                                      
   0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet              (1, 1, 2, 1200, 3)
   0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker              (1, 1, 1200)       
   0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio        (1, 1, 1200)
@@ -478,7 +475,6 @@ static const uint8_t INIT_SET2[] PROGMEM =
   0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min               (1, 1, 3000)
   0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max                (1, 1, 300)
   0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min                (1, 1, 30)  
-  /*Audio*/
   0x07, 0x30, 0x0D, 0x01, 0x00, 0x11, 0x00, 0xF0,                                                              // AUDIO_Set_Output_Source
   0x00
 };
@@ -521,8 +517,7 @@ static const uint8_t INIT_SET3[] PROGMEM =
   0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                          // FM 86 Set_Bandwidth_Options      (1, 900)                                          
   0x07, 0x20, 0x5A, 0x01, 0x00, 0x64, 0x00, 0x1E,                                                              // FM_Set_StBandBlend_Time          (1, 100, 30)
   0x0B, 0x20, 0x5B, 0x01, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8,                                      // FM_Set_StBandBlend_Gain          (1, 1000, 1000, 1000, 1000)
-  0x07, 0x30, 0x0D, 0x01, 0x00, 0x80, 0x00, 0xE0,                                                              // AUDIO_Set_Output_Source          (1, 128, 224)
-  /*AM_add_settings by eustake*/                                                         
+  0x07, 0x30, 0x0D, 0x01, 0x00, 0x80, 0x00, 0xE0,                                                              // AUDIO_Set_Output_Source          (1, 128, 224)                                                        
   0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet              (1, 1, 2, 1200, 3)
   0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker              (1, 1, 1200)       
   0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio        (1, 1, 1200)
@@ -536,7 +531,6 @@ static const uint8_t INIT_SET3[] PROGMEM =
   0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min               (1, 1, 3000)
   0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max                (1, 1, 300)
   0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min                (1, 1, 30)  
-  /*Audio*/
   0x07, 0x30, 0x0D, 0x01, 0x00, 0x11, 0x00, 0xF0,                                                              // AUDIO_Set_Output_Source
   0x00
 };
@@ -577,8 +571,7 @@ static const uint8_t INIT_SET4[] PROGMEM =
   0x07, 0x20, 0x4B, 0x01, 0x00, 0x01, 0x0F, 0xA0,                                                             // FM 75 Set_StHiBlend_Max        (1, 1, 4000)                           default
   0x07, 0x20, 0x4C, 0x01, 0x00, 0x01, 0x1B, 0x58,                                                             // FM 76 Set_StHiBlend_Min        (1, 1, 7000)                           default
   0x05, 0x20, 0x50, 0x01, 0x00, 0x01,                                                                         // FM_Set_Scaler                  (1, 1)
-  0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                         // FM 86 Set_Bandwidth_Options    (1, 900)
-  /*AM_add_settings by eustake*/                                                         
+  0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                         // FM 86 Set_Bandwidth_Options    (1, 900)                                                        
   0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet              (1, 1, 2, 1200, 3)
   0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker              (1, 1, 1200)       
   0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio        (1, 1, 1200)
@@ -592,14 +585,12 @@ static const uint8_t INIT_SET4[] PROGMEM =
   0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min               (1, 1, 3000)
   0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max                (1, 1, 300)
   0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min                (1, 1, 30)  
-  /*Audio*/
   0x07, 0x30, 0x0D, 0x01, 0x00, 0x11, 0x00, 0xF0,                                                              // AUDIO_Set_Output_Source
   0x00
 };
 
 const uint8_t AMFilterMap[] PROGMEM = { 30, 30, 30, 30, 40, 40, 40, 40, 60, 60, 60, 60, 80, 80, 80, 80 };
 const uint16_t FMFilterMap[] PROGMEM = { 560, 640, 720, 840, 970, 1140, 1330, 1510, 1680, 1840, 2000, 2170, 2360, 2540, 2870, 3110 };
-
 
 void Write(uint8_t *buf, uint8_t len)
 {
@@ -1134,7 +1125,6 @@ void loop()
           Set_IF_RF(RFplus,IFplus);
           Set_Deempasis(nDeemphasis);
           break;
-
        
         case 'X':  // shutdown
           Set_Cmd(64, 1, 1, 1);
