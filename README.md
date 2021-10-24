@@ -1,4 +1,4 @@
-# NXP-TEF6686 Arduino Radio
+# NXP-TEF6686_Arduino_Radio
 
 Arduino sketch for tuner module with chip NXP-TEF6686HN/F8602- AM/FM controlled with TEF-GTK user interface.
 
