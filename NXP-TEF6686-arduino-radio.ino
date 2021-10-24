@@ -64,8 +64,8 @@ int8_t Squelch;
 int8_t Setsquelch;
 int16_t nDeemphasis, volume;
 uint32_t freq;
-int8_t Filter_AM = 127;
-int8_t Filter_FM = 127;
+int8_t Filter_AM = 16;
+int8_t Filter_FM = 16;
 
 /* Scan */
 uint16_t scan_start = 0;
@@ -572,24 +572,24 @@ static const uint8_t INIT_SET4[] PROGMEM =
   0x07, 0x20, 0x4C, 0x01, 0x00, 0x01, 0x1B, 0x58,                                                             // FM 76 Set_StHiBlend_Min        (1, 1, 7000)                           default
   0x05, 0x20, 0x50, 0x01, 0x00, 0x01,                                                                         // FM_Set_Scaler                  (1, 1)
   0x05, 0x20, 0x56, 0x01, 0x03, 0x84,                                                                         // FM 86 Set_Bandwidth_Options    (1, 900)                                                        
-  0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet              (1, 1, 2, 1200, 3)
-  0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker              (1, 1, 1200)       
-  0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio        (1, 1, 1200)
-  0x11, 0x21, 0x26, 0x01, 0x00, 0x00, 0xFF, 0xF6, 0xFF, 0xEC, 0xFF, 0xE2, 0xFF, 0xD8, 0xFF, 0xCE, 0xFF, 0xC4,  // AM_Set_LevelStep                 (1, 0, -10, -20, -30, -40, -50, -60)
-  0x05, 0x21, 0x27, 0x01, 0xFE, 0xD4,                                                                          // AM_Set_LevelOffset               (1, -300) 
-  0x0B, 0x21, 0x28, 0x01, 0x01, 0xF4, 0x0F, 0xA0, 0x00, 0x64, 0x01, 0xF4,                                      // AM_Set_Softmute_Time             (1, 500, 4000, 100, 500)
-  0x09, 0x21, 0x2A, 0x01, 0x00, 0x01, 0x01, 0x54, 0x01, 0x2C,                                                  // AM Set_Softmute_Level            (1, 1, 340, 300)
-  0x07, 0x21, 0x2D, 0x01, 0x00, 0x01, 0x01, 0x4A,                                                              // AM_Set_Softmute_Max              (1, 1, 330)
-  0x0B, 0x21, 0x32, 0x01, 0x01, 0xF4, 0x0F, 0xA0, 0x00, 0x64, 0x01, 0xF4,                                      // AM_Set_Highcut_Time              (1, 500, 4000, 100, 500)
-  0x07, 0x21, 0x37, 0x01, 0x00, 0x01, 0x05, 0xDC,                                                              // AM_Set_Highcut_Max               (1, 1, 1500)
-  0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min               (1, 1, 3000)
-  0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max                (1, 1, 300)
-  0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min                (1, 1, 30)  
+  0x0B, 0x21, 0x0E, 0x01, 0x00, 0x01, 0x00, 0x02, 0x04, 0xB0, 0x00, 0x03,                                      // AM_Set_CoChannelDet           (1, 1, 2, 1200, 3)
+  0x07, 0x21, 0x17, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM_Set_NoiseBlanker           (1, 1, 1200)       
+  0x07, 0x21, 0x18, 0x01, 0x00, 0x01, 0x04, 0xB0,                                                              // AM Set_NoiseBlanker_Audio     (1, 1, 1200)
+  0x11, 0x21, 0x26, 0x01, 0x00, 0x00, 0xFF, 0xF6, 0xFF, 0xEC, 0xFF, 0xE2, 0xFF, 0xD8, 0xFF, 0xCE, 0xFF, 0xC4,  // AM_Set_LevelStep              (1, 0, -10, -20, -30, -40, -50, -60)
+  0x05, 0x21, 0x27, 0x01, 0xFE, 0xD4,                                                                          // AM_Set_LevelOffset            (1, -300) 
+  0x0B, 0x21, 0x28, 0x01, 0x01, 0xF4, 0x0F, 0xA0, 0x00, 0x64, 0x01, 0xF4,                                      // AM_Set_Softmute_Time          (1, 500, 4000, 100, 500)
+  0x09, 0x21, 0x2A, 0x01, 0x00, 0x01, 0x01, 0x54, 0x01, 0x2C,                                                  // AM Set_Softmute_Level         (1, 1, 340, 300)
+  0x07, 0x21, 0x2D, 0x01, 0x00, 0x01, 0x01, 0x4A,                                                              // AM_Set_Softmute_Max           (1, 1, 330)
+  0x0B, 0x21, 0x32, 0x01, 0x01, 0xF4, 0x0F, 0xA0, 0x00, 0x64, 0x01, 0xF4,                                      // AM_Set_Highcut_Time           (1, 500, 4000, 100, 500)
+  0x07, 0x21, 0x37, 0x01, 0x00, 0x01, 0x05, 0xDC,                                                              // AM_Set_Highcut_Max            (1, 1, 1500)
+  0x07, 0x21, 0x38, 0x01, 0x00, 0x01, 0x0B, 0xB8,                                                              // AM_Set_Highcut_Min            (1, 1, 3000)
+  0x07, 0x21, 0x39, 0x01, 0x00, 0x01, 0x01, 0x2C,                                                              // AM_Set_Lowcut_Max             (1, 1, 300)
+  0x07, 0x21, 0x3A, 0x01, 0x00, 0x01, 0x00, 0x1E,                                                              // AM_Set_Lowcut_Min             (1, 1, 30)  
   0x07, 0x30, 0x0D, 0x01, 0x00, 0x11, 0x00, 0xF0,                                                              // AUDIO_Set_Output_Source
   0x00
 };
 
-const uint8_t AMFilterMap[] PROGMEM = { 30, 30, 30, 30, 40, 40, 40, 40, 60, 60, 60, 60, 80, 80, 80, 80 };
+const uint8_t AMFilterMap[] PROGMEM = { 30, 40, 60, 80, 30, 40, 60, 80, 30, 40, 60, 80, 30, 40, 60, 80 };
 const uint16_t FMFilterMap[] PROGMEM = { 560, 640, 720, 840, 970, 1140, 1330, 1510, 1680, 1840, 2000, 2170, 2360, 2540, 2870, 3110 };
 
 void Write(uint8_t *buf, uint8_t len)
@@ -669,7 +669,6 @@ void dsp_write_data(const uint8_t* data)
 
 void scan(bool continous)
 {
-
   uint32_t freq;
   uint32_t buffer;
 
@@ -688,7 +687,7 @@ void scan(bool continous)
   if (scan_mode == 0)
   {
     if (scan_filter == -1) {set_filter = 10;} else {set_filter = scan_filter;}
-    Set_Cmd(32, 10, 4, scan_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + set_filter), 1000, 1000);
+    Set_Cmd(32, 10, 4, scan_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + set_filter), 1500, 1500);
     Set_Cmd(32, 1, 2, 1, scan_start);
   }
   else
@@ -714,11 +713,10 @@ void scan(bool continous)
 
     Serial.print('\n');
   } while (continous && !Serial.available());
-  //  Restore previous settings
   if (radio_mode == FM)
   {
     if (current_filter == -1) {set_filter = 10;} else {set_filter = current_filter;}
-    Set_Cmd( 32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + set_filter), 1000, 1000);
+    Set_Cmd( 32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + set_filter), 1500, 1500);
     Set_Cmd( 32, 1, 2, 1, REG_FREQ / 10 );
   }
   else
@@ -972,10 +970,10 @@ void loop()
             Serial.println("M0");
             Serial.print('T');
             Serial.println(MODF_FREQ);
-            if (Filter_AM != 127) {Filter_AM = current_filter;} 
-			      if (Filter_FM == 127) {Filter_FM = -1;}
+            if (Filter_AM != 16) {Filter_AM = current_filter;} 
+			      if (Filter_FM == 16) {Filter_FM = -1;}
 			      current_filter = Filter_FM;
-            Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter), 1000, 1000);
+            Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter), 1500, 1500);
             radio_mode = FM;
           } else {
             if (MODA_FREQ == 0){MODA_FREQ = 558;} 
@@ -984,8 +982,8 @@ void loop()
             Serial.print('T');
             Serial.println(MODA_FREQ);
 			      Filter_FM = current_filter;
-	          if (Filter_FM != 127) {Filter_FM = current_filter;} 
-   	        if (Filter_AM == 127) {Filter_AM = 21;}
+	          if (Filter_FM != 16) {Filter_FM = current_filter;} 
+   	        if (Filter_AM == 16) {Filter_AM = 11;}
             current_filter = Filter_AM;
             Set_Cmd(33, 10, 2, 0, pgm_read_byte_near(AMFilterMap + current_filter));
             radio_mode = AM;
@@ -1005,10 +1003,10 @@ void loop()
             Serial.print('T');
             Serial.println(REG_FREQ);
             if (radio_mode == FM) {                         // from AM to FM then switch to adaptive filter AUTO in TEF-GTK
-              if (Filter_AM != 127) {Filter_AM = current_filter;} 
-             if (Filter_FM == 127) {Filter_FM = -1;}
+              if (Filter_AM != 16) {Filter_AM = current_filter;} 
+             if (Filter_FM == 16) {Filter_FM = -1;}
               current_filter = Filter_FM;
-              Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter), 1000, 1000);
+              Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter),  1500, 1500);
             }
             radio_mode = FM;
             MODF_FREQ = REG_FREQ;
@@ -1018,8 +1016,8 @@ void loop()
               Serial.print('T');
               Serial.println(REG_FREQ);
               if (radio_mode == FM) {                       // from FM to AM then use filter 21 -> 4khz   
-                if (Filter_FM != 127) {Filter_FM = current_filter;} 
-                if (Filter_AM == 127) {Filter_AM = 21;}
+                if (Filter_FM != 16) {Filter_FM = current_filter;} 
+                if (Filter_AM == 16) {Filter_AM = 21;}
                 current_filter = Filter_AM;
                 Set_Cmd(33, 10, 2, 0, pgm_read_byte_near(AMFilterMap + current_filter));
               }
@@ -1036,7 +1034,7 @@ void loop()
           current_filter = atoi(buff + 1);
           if (radio_mode == FM) {
             if (current_filter == -1) {set_filter = 10;} else {set_filter = current_filter;}
-            Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter), 1000, 1000);
+            Set_Cmd(32, 10, 4, current_filter == -1 ? 1 : 0, pgm_read_word_near(FMFilterMap + current_filter),  1500, 1500);
           }
           else {
             Set_Cmd(33, 10, 2, 0, pgm_read_byte_near(AMFilterMap + current_filter));
