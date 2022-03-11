@@ -1,4 +1,4 @@
-#NXP-TEF668x_Arduino_Radio F8602/F8605
+#NXP-TEF668x_F8602/F8605_Arduino_Radio 
 
 Arduino sketch for tuner module with chip NXP-TEF668x (F8602 or F8605) AM/FM controlled with TEF-GTK user interface.
 
