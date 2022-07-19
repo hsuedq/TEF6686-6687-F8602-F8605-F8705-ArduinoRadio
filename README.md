@@ -15,18 +15,3 @@ Thanks - VoXiTPro https://github.com/voxit1512/Tef6686
 PCB: https://www.pcbway.com/project/shareproject/PCB_for_TEF6686_and_TEF_GTK_7ae7c25a.html
 
 Tested on Arduino Nano V3.0 / 5V
-
-Online GTK-Server with TEF6686 tuner ... for connect use TEF-GTK user interface.
-
-AUDIO: http://ihaha.go.ro:8000/
-
-TEF-GTK:
-
-Host: ihaha.go.ro
-
-Port: 7373
-
-Password: teste
-
-
-
