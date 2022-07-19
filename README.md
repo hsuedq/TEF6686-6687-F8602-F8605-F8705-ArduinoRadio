@@ -1,4 +1,4 @@
-![bandicam 2022-07-19 18-12-08-838](https://user-images.githubusercontent.com/60916643/179788779-ad1a6696-c831-4bc9-9e8f-9eb8ae2e8636.jpg)
+
 #NXP-TEF6686_F8602_F8605-Arduino_Radio 
 
 Arduino sketch for tuner module with chip NXP-TEF6686 AM/FM controlled with TEF-GTK user interface.
