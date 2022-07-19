@@ -20,9 +20,12 @@ Online GTK-Server with TEF6686 tuner ... for connect use TEF-GTK user interface.
 AUDIO: http://ihaha.go.ro:8000/
 
 TEF-GTK:
+
 Host: ihaha.go.ro
+
 Port: 7373
+
 Password: teste
 
 
-https://i.postimg.cc/HWqwV7Dy/bandicam-2022-07-19-18-12-08-838.jpg
+
