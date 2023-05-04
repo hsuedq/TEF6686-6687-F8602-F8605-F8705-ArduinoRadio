@@ -1,5 +1,5 @@
 
-Arduino sketch for tuner module with chip NXP-TEF6686 [F8602_F8605] controlled with TEF-GTK user interface.
+Arduino sketch for tuner module with chip NXP-TEF6686 [F8602_F8605] or NXP-TEF6687 [F8705] controlled with TEF-GTK user interface.
 
 In TEF-GTK the button SET 1,2,3,4 contains different settings for NXP-TEF6686 chip.
 
